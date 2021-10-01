@@ -325,14 +325,14 @@ namespace JPChart
             this.ResumeLayout();
         }        
 
-        void RemoveSeries(int index)
+        public void RemoveSeries(int index)
         {
             this.SuspendLayout();
             this.Series.RemoveAt(index);
             this.ResumeLayout();
         }
 
-        void RemoveSeries(string seriesName)
+        public void RemoveSeries(string seriesName)
         {
             this.SuspendLayout();
             this.Series.Remove(this.Series.FindByName(seriesName));

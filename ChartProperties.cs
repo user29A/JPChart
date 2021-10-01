@@ -818,29 +818,61 @@ namespace JPChart
 
 		private void SeriesContext_Opening(object sender, CancelEventArgs e)
 		{
-			SeriesContext.Items.Clear();
+			SeriesRenameDeleteContext.Items.Clear();
+
+			ToolStripMenuItem deletemenu = new ToolStripMenuItem("Remove:");
+			SeriesRenameDeleteContext.Items.Add(deletemenu);
+
+			ToolStripMenuItem renamemenu = new ToolStripMenuItem("Rename:");
+			SeriesRenameDeleteContext.Items.Add(renamemenu);
 
 			for (int i = 0; i < CHART.Series.Count; i++)
 			{
-				ToolStripTextBox seriesContextTextBox = new ToolStripTextBox();
-				seriesContextTextBox.Text = CHART.Series[i].Name;
-				seriesContextTextBox.Tag = i;
-				seriesContextTextBox.KeyDown += SeriesContextTextBox_KeyDown;
-				SeriesContext.Items.Add(seriesContextTextBox);
+				ToolStripButton SeriesDeleteBtn = new ToolStripButton();
+				SeriesDeleteBtn.Text = CHART.Series[i].Name;
+				SeriesDeleteBtn.Tag = i;
+				SeriesDeleteBtn.Click += SeriesDeleteBtn_Click;
+				deletemenu.DropDownItems.Add(SeriesDeleteBtn);
+
+				ToolStripTextBox SeriesRenameTextBox = new ToolStripTextBox();
+				SeriesRenameTextBox.Text = CHART.Series[i].Name;
+				SeriesRenameTextBox.Tag = i;
+				SeriesRenameTextBox.BackColor = Color.LightGray;
+				SeriesRenameTextBox.KeyDown += SeriesRenameTextBox_KeyDown;
+				renamemenu.DropDownItems.Add(SeriesRenameTextBox);
 			}
 		}
 
-		private void SeriesContextTextBox_KeyDown(object sender, KeyEventArgs e)
+		private void SeriesDeleteBtn_Click(object sender, EventArgs e)
+		{
+			if (CHART.Series.Count == 1)
+				return;
+
+			int index = (int)(sender as ToolStripButton).Tag;
+			CHART.RemoveSeries(index);
+			ChartSeriesNumberNameDrop.Items.Clear();
+			for (int i = 0; i < CHART.Series.Count; i++)
+				ChartSeriesNumberNameDrop.Items.Add(CHART.Series[i].Name);
+			ChartSeriesNumberNameDrop.SelectedIndex = 0;
+			ChartSeriesNumberNameDrop.DroppedDown = true;
+		}
+
+		private void SeriesRenameTextBox_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.KeyCode == Keys.Enter)
 			{
 				e.SuppressKeyPress = true;
 
 				if ((sender as ToolStripTextBox).Text == "")
+				{
+					(sender as ToolStripTextBox).Text = ChartSeriesNumberNameDrop.Items[(int)(sender as ToolStripTextBox).Tag].ToString();
 					return;
+				}
 
 				ChartSeriesNumberNameDrop.Items[(int)(sender as ToolStripTextBox).Tag] = (sender as ToolStripTextBox).Text;
 				CHART.Series[(int)(sender as ToolStripTextBox).Tag].Name = (sender as ToolStripTextBox).Text;
+				ChartSeriesNumberNameDrop.SelectedIndex = (int)(sender as ToolStripTextBox).Tag;
+				ChartSeriesNumberNameDrop.DroppedDown = true;
 			}
 		}
 
