@@ -1,6 +1,6 @@
 ﻿namespace JPChart
 {
-    partial class JPChart
+    partial class JPChartControl
     {
         /// <summary>
         /// Required designer variable.
@@ -18,15 +18,15 @@
                 components.Dispose();
             }
             base.Dispose(disposing);
-        }
+        }		
 
-        #region Component Designer generated code
+		#region Component Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify 
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
+		/// <summary>
+		/// Required method for Designer support - do not modify 
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
         {
 			this.components = new System.ComponentModel.Container();
 			this.ChartContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -50,6 +50,7 @@
 			// 
 			// ChartContextMenu
 			// 
+			this.ChartContextMenu.ImageScalingSize = new System.Drawing.Size(24, 24);
 			this.ChartContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ChartContextZoomBtn,
             this.ChartContextPlotAreaMenu,
@@ -60,7 +61,7 @@
             this.ChartContextCopyDataBtn,
             this.ChartContextSaveAsBtn});
 			this.ChartContextMenu.Name = "ChartContext";
-			this.ChartContextMenu.Size = new System.Drawing.Size(171, 148);
+			this.ChartContextMenu.Size = new System.Drawing.Size(229, 208);
 			this.ChartContextMenu.Opening += new System.ComponentModel.CancelEventHandler(this.ChartContextMenu_Opening);
 			// 
 			// ChartContextZoomBtn
@@ -68,14 +69,14 @@
 			this.ChartContextZoomBtn.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ChartContextZoomResetBtn});
 			this.ChartContextZoomBtn.Name = "ChartContextZoomBtn";
-			this.ChartContextZoomBtn.Size = new System.Drawing.Size(170, 22);
+			this.ChartContextZoomBtn.Size = new System.Drawing.Size(228, 32);
 			this.ChartContextZoomBtn.Text = "Zoom";
 			this.ChartContextZoomBtn.Click += new System.EventHandler(this.ChartContextZoomBtn_Click);
 			// 
 			// ChartContextZoomResetBtn
 			// 
 			this.ChartContextZoomResetBtn.Name = "ChartContextZoomResetBtn";
-			this.ChartContextZoomResetBtn.Size = new System.Drawing.Size(130, 22);
+			this.ChartContextZoomResetBtn.Size = new System.Drawing.Size(198, 34);
 			this.ChartContextZoomResetBtn.Text = "Reset Axes";
 			this.ChartContextZoomResetBtn.Visible = false;
 			this.ChartContextZoomResetBtn.Click += new System.EventHandler(this.ChartContextZoomResetBtn_Click);
@@ -88,7 +89,7 @@
             this.toolStripSeparator1,
             this.ChartContextGridChck});
 			this.ChartContextPlotAreaMenu.Name = "ChartContextPlotAreaMenu";
-			this.ChartContextPlotAreaMenu.Size = new System.Drawing.Size(170, 22);
+			this.ChartContextPlotAreaMenu.Size = new System.Drawing.Size(228, 32);
 			this.ChartContextPlotAreaMenu.Text = "Plot Area";
 			// 
 			// ChartContextAutoAxesChck
@@ -97,7 +98,7 @@
 			this.ChartContextAutoAxesChck.CheckOnClick = true;
 			this.ChartContextAutoAxesChck.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.ChartContextAutoAxesChck.Name = "ChartContextAutoAxesChck";
-			this.ChartContextAutoAxesChck.Size = new System.Drawing.Size(129, 22);
+			this.ChartContextAutoAxesChck.Size = new System.Drawing.Size(196, 34);
 			this.ChartContextAutoAxesChck.Text = "Auto Axes";
 			this.ChartContextAutoAxesChck.Click += new System.EventHandler(this.ChartContextAutoAxesChck_Click);
 			// 
@@ -105,58 +106,58 @@
 			// 
 			this.ChartContextTightAxesChck.CheckOnClick = true;
 			this.ChartContextTightAxesChck.Name = "ChartContextTightAxesChck";
-			this.ChartContextTightAxesChck.Size = new System.Drawing.Size(129, 22);
+			this.ChartContextTightAxesChck.Size = new System.Drawing.Size(196, 34);
 			this.ChartContextTightAxesChck.Text = "Tight Axes";
 			this.ChartContextTightAxesChck.Click += new System.EventHandler(this.ChartContextTightAxesChck_Click);
 			// 
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(126, 6);
+			this.toolStripSeparator1.Size = new System.Drawing.Size(193, 6);
 			// 
 			// ChartContextGridChck
 			// 
 			this.ChartContextGridChck.CheckOnClick = true;
 			this.ChartContextGridChck.Name = "ChartContextGridChck";
-			this.ChartContextGridChck.Size = new System.Drawing.Size(129, 22);
+			this.ChartContextGridChck.Size = new System.Drawing.Size(196, 34);
 			this.ChartContextGridChck.Text = "Grid";
 			this.ChartContextGridChck.Click += new System.EventHandler(this.ChartContextGridChck_Click);
 			// 
 			// toolStripSeparator2
 			// 
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(167, 6);
+			this.toolStripSeparator2.Size = new System.Drawing.Size(225, 6);
 			// 
 			// ChartContextPropertiesBtn
 			// 
 			this.ChartContextPropertiesBtn.Name = "ChartContextPropertiesBtn";
-			this.ChartContextPropertiesBtn.Size = new System.Drawing.Size(170, 22);
+			this.ChartContextPropertiesBtn.Size = new System.Drawing.Size(228, 32);
 			this.ChartContextPropertiesBtn.Text = "Properties";
 			this.ChartContextPropertiesBtn.Click += new System.EventHandler(this.ChartContextPropertiesBtn_Click);
 			// 
 			// toolStripSeparator3
 			// 
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(167, 6);
+			this.toolStripSeparator3.Size = new System.Drawing.Size(225, 6);
 			// 
 			// ChartContextCopyImageBtn
 			// 
 			this.ChartContextCopyImageBtn.Name = "ChartContextCopyImageBtn";
-			this.ChartContextCopyImageBtn.Size = new System.Drawing.Size(170, 22);
+			this.ChartContextCopyImageBtn.Size = new System.Drawing.Size(228, 32);
 			this.ChartContextCopyImageBtn.Text = "Copy Chart Image";
 			this.ChartContextCopyImageBtn.Click += new System.EventHandler(this.ChartContextCopyImageBtn_Click);
 			// 
 			// ChartContextCopyDataBtn
 			// 
 			this.ChartContextCopyDataBtn.Name = "ChartContextCopyDataBtn";
-			this.ChartContextCopyDataBtn.Size = new System.Drawing.Size(170, 22);
+			this.ChartContextCopyDataBtn.Size = new System.Drawing.Size(228, 32);
 			this.ChartContextCopyDataBtn.Text = "Copy Chart Data";
 			this.ChartContextCopyDataBtn.Click += new System.EventHandler(this.ChartContextCopyDataBtn_Click);
 			// 
 			// ChartContextSaveAsBtn
 			// 
 			this.ChartContextSaveAsBtn.Name = "ChartContextSaveAsBtn";
-			this.ChartContextSaveAsBtn.Size = new System.Drawing.Size(170, 22);
+			this.ChartContextSaveAsBtn.Size = new System.Drawing.Size(228, 32);
 			this.ChartContextSaveAsBtn.Text = "Save As...";
 			this.ChartContextSaveAsBtn.Click += new System.EventHandler(this.ChartContextSaveAsBtn_Click);
 			// 
@@ -169,9 +170,11 @@
 			this.ChartToolTip.UseAnimation = false;
 			this.ChartToolTip.UseFading = false;
 			// 
-			// JPChart
+			// JPChartControl
 			// 
+			this.BorderlineColor = System.Drawing.Color.Black;
 			this.ContextMenuStrip = this.ChartContextMenu;
+			this.Name = "JPChartControl";
 			this.Size = new System.Drawing.Size(800, 450);
 			this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.JPChart_MouseDoubleClick);
 			this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.JPChart_MouseDown);
@@ -190,27 +193,16 @@
         private System.Windows.Forms.ToolTip ChartToolTip;
         private System.Windows.Forms.ToolStripMenuItem ChartContextZoomBtn;
         private System.Windows.Forms.ToolStripMenuItem ChartContextPlotAreaMenu;
-        private System.Windows.Forms.ToolStripMenuItem ChartContextAutoAxesChck;
-        private System.Windows.Forms.ToolStripMenuItem ChartContextTightAxesChck;
+        public System.Windows.Forms.ToolStripMenuItem ChartContextAutoAxesChck;
+        public System.Windows.Forms.ToolStripMenuItem ChartContextTightAxesChck;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem ChartContextGridChck;
+        public System.Windows.Forms.ToolStripMenuItem ChartContextGridChck;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem ChartContextPropertiesBtn;
+        public System.Windows.Forms.ToolStripMenuItem ChartContextPropertiesBtn;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem ChartContextCopyImageBtn;
         private System.Windows.Forms.ToolStripMenuItem ChartContextCopyDataBtn;
         private System.Windows.Forms.ToolStripMenuItem ChartContextSaveAsBtn;
-        private System.Windows.Forms.ToolStripMenuItem ChartContextZoomResetBtn;
-
-        public double[] XDATA;
-        public double[] YDATA;
-        ChartProperties CP;
-        bool DOZOOM;
-        bool TOOLTIPISSHOWN;
-        int CURRENTMOUSEEX;
-        int CURRENTMOUSEEY;
-        public bool AXESAUTO, AXESTIGHT, AXESMAN;
-        public double DATAMINX, DATAMAXX, DATAMINY, DATAMAXY;
-        public double AXESMANMINX, AXESMANMAXX, AXESMANMINY, AXESMANMAXY;
+        private System.Windows.Forms.ToolStripMenuItem ChartContextZoomResetBtn;        
 	}
 }

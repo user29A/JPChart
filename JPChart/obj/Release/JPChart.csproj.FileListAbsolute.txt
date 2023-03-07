@@ -1,0 +1,43 @@
+C:\Users\Joseph E Postma\Documents\Visual Studio 2019\Projects 2019\JPChart\obj\Release\JPChart.csproj.AssemblyReference.cache
+C:\Users\Joseph E Postma\Documents\Visual Studio 2019\Projects 2019\JPChart\obj\Release\JPChart.ChartProperties.resources
+C:\Users\Joseph E Postma\Documents\Visual Studio 2019\Projects 2019\JPChart\obj\Release\JPChart.JPChart.resources
+C:\Users\Joseph E Postma\Documents\Visual Studio 2019\Projects 2019\JPChart\obj\Release\JPChart.csproj.GenerateResource.cache
+C:\Users\Joseph E Postma\Documents\Visual Studio 2019\Projects 2019\JPChart\obj\Release\JPChart.csproj.CoreCompileInputs.cache
+C:\Users\Joseph E Postma\Documents\Visual Studio 2019\Projects 2019\JPChart\bin\Release\JPChart.dll
+C:\Users\Joseph E Postma\Documents\Visual Studio 2019\Projects 2019\JPChart\bin\Release\JPChart.pdb
+C:\Users\Joseph E Postma\Documents\Visual Studio 2019\Projects 2019\JPChart\bin\Release\alglibnet2.dll
+C:\Users\Joseph E Postma\Documents\Visual Studio 2019\Projects 2019\JPChart\obj\Release\JPChart.dll
+C:\Users\Joseph E Postma\Documents\Visual Studio 2019\Projects 2019\JPChart\obj\Release\JPChart.pdb
+C:\Users\Joseph E Postma\source\repos\JPChart\bin\Release\JPChart.dll
+C:\Users\Joseph E Postma\source\repos\JPChart\bin\Release\JPChart.pdb
+C:\Users\Joseph E Postma\source\repos\JPChart\bin\Release\alglib318hpc_net2.dll
+C:\Users\Joseph E Postma\source\repos\JPChart\obj\Release\JPChart.csproj.AssemblyReference.cache
+C:\Users\Joseph E Postma\source\repos\JPChart\obj\Release\JPChart.ChartProperties.resources
+C:\Users\Joseph E Postma\source\repos\JPChart\obj\Release\JPChart.JPChart.resources
+C:\Users\Joseph E Postma\source\repos\JPChart\obj\Release\JPChart.csproj.GenerateResource.cache
+C:\Users\Joseph E Postma\source\repos\JPChart\obj\Release\JPChart.csproj.CoreCompileInputs.cache
+C:\Users\Joseph E Postma\source\repos\JPChart\obj\Release\JPChart.csproj.CopyComplete
+C:\Users\Joseph E Postma\source\repos\JPChart\obj\Release\JPChart.dll
+C:\Users\Joseph E Postma\source\repos\JPChart\obj\Release\JPChart.pdb
+C:\Users\Joseph E Postma\Documents\Visual Studio 2022\Projects 2022\JPChart\bin\Release\JPChart.dll
+C:\Users\Joseph E Postma\Documents\Visual Studio 2022\Projects 2022\JPChart\bin\Release\JPChart.pdb
+C:\Users\Joseph E Postma\Documents\Visual Studio 2022\Projects 2022\JPChart\bin\Release\alglib318hpc_net2.dll
+C:\Users\Joseph E Postma\Documents\Visual Studio 2022\Projects 2022\JPChart\obj\Release\JPChart.csproj.AssemblyReference.cache
+C:\Users\Joseph E Postma\Documents\Visual Studio 2022\Projects 2022\JPChart\obj\Release\JPChart.ChartProperties.resources
+C:\Users\Joseph E Postma\Documents\Visual Studio 2022\Projects 2022\JPChart\obj\Release\JPChart.JPChart.resources
+C:\Users\Joseph E Postma\Documents\Visual Studio 2022\Projects 2022\JPChart\obj\Release\JPChart.csproj.GenerateResource.cache
+C:\Users\Joseph E Postma\Documents\Visual Studio 2022\Projects 2022\JPChart\obj\Release\JPChart.csproj.CoreCompileInputs.cache
+C:\Users\Joseph E Postma\Documents\Visual Studio 2022\Projects 2022\JPChart\obj\Release\JPChart.csproj.CopyComplete
+C:\Users\Joseph E Postma\Documents\Visual Studio 2022\Projects 2022\JPChart\obj\Release\JPChart.dll
+C:\Users\Joseph E Postma\Documents\Visual Studio 2022\Projects 2022\JPChart\obj\Release\JPChart.pdb
+C:\Users\Joseph E Postma\Documents\Visual Studio 2022\Projects 2022\JPChart\JPChart\bin\Release\JPChart.dll
+C:\Users\Joseph E Postma\Documents\Visual Studio 2022\Projects 2022\JPChart\JPChart\bin\Release\JPChart.pdb
+C:\Users\Joseph E Postma\Documents\Visual Studio 2022\Projects 2022\JPChart\JPChart\bin\Release\alglib318hpc_net2.dll
+C:\Users\Joseph E Postma\Documents\Visual Studio 2022\Projects 2022\JPChart\JPChart\obj\Release\JPChart.csproj.AssemblyReference.cache
+C:\Users\Joseph E Postma\Documents\Visual Studio 2022\Projects 2022\JPChart\JPChart\obj\Release\JPChart.ChartProperties.resources
+C:\Users\Joseph E Postma\Documents\Visual Studio 2022\Projects 2022\JPChart\JPChart\obj\Release\JPChart.JPChartControl.resources
+C:\Users\Joseph E Postma\Documents\Visual Studio 2022\Projects 2022\JPChart\JPChart\obj\Release\JPChart.csproj.GenerateResource.cache
+C:\Users\Joseph E Postma\Documents\Visual Studio 2022\Projects 2022\JPChart\JPChart\obj\Release\JPChart.csproj.CoreCompileInputs.cache
+C:\Users\Joseph E Postma\Documents\Visual Studio 2022\Projects 2022\JPChart\JPChart\obj\Release\JPChart.csproj.CopyComplete
+C:\Users\Joseph E Postma\Documents\Visual Studio 2022\Projects 2022\JPChart\JPChart\obj\Release\JPChart.dll
+C:\Users\Joseph E Postma\Documents\Visual Studio 2022\Projects 2022\JPChart\JPChart\obj\Release\JPChart.pdb

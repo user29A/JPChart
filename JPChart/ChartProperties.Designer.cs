@@ -20,47 +20,33 @@ namespace JPChart
             }
             base.Dispose(disposing);
         }
+		
+		#region Windows Form Designer generated code
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
         {
 			this.components = new System.ComponentModel.Container();
 			this.ChartPropertiesTab = new System.Windows.Forms.TabControl();
 			this.TabChart = new System.Windows.Forms.TabPage();
 			this.ChartSeriesLegendChck = new System.Windows.Forms.CheckBox();
-			this.LegendPlacementContext = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-			this.LegendInsideChck = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.LegendTopBtn = new System.Windows.Forms.ToolStripMenuItem();
-			this.LegendCenterBtn = new System.Windows.Forms.ToolStripMenuItem();
-			this.LegendBottomBtn = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-			this.horizontalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.LegendDockTopBtn = new System.Windows.Forms.ToolStripMenuItem();
-			this.LegendDockRightBtn = new System.Windows.Forms.ToolStripMenuItem();
-			this.LegendDockBottomBtn = new System.Windows.Forms.ToolStripMenuItem();
-			this.LegendDockLeftBtn = new System.Windows.Forms.ToolStripMenuItem();
 			this.ApplyTitleFontAllChck = new System.Windows.Forms.CheckBox();
 			this.ChartTitleFontBtn = new System.Windows.Forms.Button();
 			this.label5 = new System.Windows.Forms.Label();
 			this.ChartTitleTxt = new System.Windows.Forms.TextBox();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
-			this.SeriesFitRobustChck = new System.Windows.Forms.CheckBox();
-			this.SeriesFitNumericUpD = new System.Windows.Forms.NumericUpDown();
 			this.ChartSeriesFitDrop = new System.Windows.Forms.ComboBox();
-			this.SeriesRenameDeleteContext = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+			this.SeriesFitContext = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.SeriesFitContextCopySolution = new System.Windows.Forms.ToolStripMenuItem();
+			this.SeriesFitContextCopyFitData = new System.Windows.Forms.ToolStripMenuItem();
 			this.label13 = new System.Windows.Forms.Label();
 			this.label12 = new System.Windows.Forms.Label();
 			this.ChartSeriesNumberNameDrop = new System.Windows.Forms.ComboBox();
+			this.SeriesRenameDeleteContext = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
 			this.ChartSeriesMarkerStyleDrop = new System.Windows.Forms.ComboBox();
 			this.ChartSeriesStyleDrop = new System.Windows.Forms.ComboBox();
 			this.ChartSeriesColourBtn = new System.Windows.Forms.Button();
@@ -70,9 +56,18 @@ namespace JPChart
 			this.label10 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
-			this.SeriesFitNormalizedChck = new System.Windows.Forms.CheckBox();
+			this.SeriesFitNumericUpD = new System.Windows.Forms.NumericUpDown();
 			this.SeriesSplineTypeDrop = new System.Windows.Forms.ComboBox();
+			this.SeriesFitRobustChck = new System.Windows.Forms.CheckBox();
+			this.SeriesFitNormalizedChck = new System.Windows.Forms.CheckBox();
 			this.TabXAxis = new System.Windows.Forms.TabPage();
+			this.groupBox6 = new System.Windows.Forms.GroupBox();
+			this.XAxisMinorTickSpacingTextBox = new System.Windows.Forms.TextBox();
+			this.XAxisTickSpacingTextBox = new System.Windows.Forms.TextBox();
+			this.label15 = new System.Windows.Forms.Label();
+			this.XAxisFontSizeUpD = new System.Windows.Forms.NumericUpDown();
+			this.label14 = new System.Windows.Forms.Label();
+			this.XAxisMinorTickChck = new System.Windows.Forms.CheckBox();
 			this.groupBox5 = new System.Windows.Forms.GroupBox();
 			this.XAxisGridChck = new System.Windows.Forms.CheckBox();
 			this.XAxisLogarithmicChck = new System.Windows.Forms.CheckBox();
@@ -89,6 +84,13 @@ namespace JPChart
 			this.XAxisMinAutoChck = new System.Windows.Forms.CheckBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.TabYAxis = new System.Windows.Forms.TabPage();
+			this.groupBox7 = new System.Windows.Forms.GroupBox();
+			this.YAxisMinorTickSpacingTextBox = new System.Windows.Forms.TextBox();
+			this.label17 = new System.Windows.Forms.Label();
+			this.YAxisFontSizeUpD = new System.Windows.Forms.NumericUpDown();
+			this.YAxisTickSpacingTextBox = new System.Windows.Forms.TextBox();
+			this.label16 = new System.Windows.Forms.Label();
+			this.YAxisMinorTickChck = new System.Windows.Forms.CheckBox();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
 			this.YAxisGridChck = new System.Windows.Forms.CheckBox();
 			this.YAxisLogarithmicChck = new System.Windows.Forms.CheckBox();
@@ -104,26 +106,49 @@ namespace JPChart
 			this.label2 = new System.Windows.Forms.Label();
 			this.YAxisMinAutoChck = new System.Windows.Forms.CheckBox();
 			this.label1 = new System.Windows.Forms.Label();
+			this.LegendChckContext = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.LegendFontBtn = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+			this.LegendInsideChck = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.LegendTopBtn = new System.Windows.Forms.ToolStripMenuItem();
+			this.LegendCenterBtn = new System.Windows.Forms.ToolStripMenuItem();
+			this.LegendBottomBtn = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.horizontalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.LegendDockTopBtn = new System.Windows.Forms.ToolStripMenuItem();
+			this.LegendDockRightBtn = new System.Windows.Forms.ToolStripMenuItem();
+			this.LegendDockBottomBtn = new System.Windows.Forms.ToolStripMenuItem();
+			this.LegendDockLeftBtn = new System.Windows.Forms.ToolStripMenuItem();
 			this.CloseBtn = new System.Windows.Forms.Button();
 			this.FontDialogTitle = new System.Windows.Forms.FontDialog();
 			this.FontDialogXAxis = new System.Windows.Forms.FontDialog();
 			this.FontDialogYAxis = new System.Windows.Forms.FontDialog();
 			this.SeriesColourDlg = new System.Windows.Forms.ColorDialog();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+			this.FontDialogLegend = new System.Windows.Forms.FontDialog();
 			this.ChartPropertiesTab.SuspendLayout();
 			this.TabChart.SuspendLayout();
-			this.LegendPlacementContext.SuspendLayout();
 			this.groupBox3.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.SeriesFitNumericUpD)).BeginInit();
+			this.SeriesFitContext.SuspendLayout();
 			this.SeriesRenameDeleteContext.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ChartSeriesLineWidthUpD)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.ChartSeriesMarkerSizeUpD)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.SeriesFitNumericUpD)).BeginInit();
 			this.TabXAxis.SuspendLayout();
+			this.groupBox6.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.XAxisFontSizeUpD)).BeginInit();
 			this.groupBox5.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.TabYAxis.SuspendLayout();
+			this.groupBox7.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.YAxisFontSizeUpD)).BeginInit();
 			this.groupBox4.SuspendLayout();
 			this.groupBox1.SuspendLayout();
+			this.LegendChckContext.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// ChartPropertiesTab
@@ -150,7 +175,7 @@ namespace JPChart
 			this.TabChart.Controls.Add(this.groupBox3);
 			this.TabChart.Location = new System.Drawing.Point(4, 22);
 			this.TabChart.Name = "TabChart";
-			this.TabChart.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+			this.TabChart.Padding = new System.Windows.Forms.Padding(3);
 			this.TabChart.Size = new System.Drawing.Size(402, 183);
 			this.TabChart.TabIndex = 0;
 			this.TabChart.Text = "Chart";
@@ -158,140 +183,14 @@ namespace JPChart
 			// ChartSeriesLegendChck
 			// 
 			this.ChartSeriesLegendChck.AutoSize = true;
-			this.ChartSeriesLegendChck.ContextMenuStrip = this.LegendPlacementContext;
 			this.ChartSeriesLegendChck.Location = new System.Drawing.Point(7, 40);
 			this.ChartSeriesLegendChck.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.ChartSeriesLegendChck.Name = "ChartSeriesLegendChck";
 			this.ChartSeriesLegendChck.Size = new System.Drawing.Size(62, 17);
 			this.ChartSeriesLegendChck.TabIndex = 16;
 			this.ChartSeriesLegendChck.Text = "Legend";
-			this.toolTip1.SetToolTip(this.ChartSeriesLegendChck, "Right Click for Placement");
 			this.ChartSeriesLegendChck.UseVisualStyleBackColor = true;
 			this.ChartSeriesLegendChck.CheckedChanged += new System.EventHandler(this.ChartSeriesLegendChck_CheckedChanged);
-			// 
-			// LegendPlacementContext
-			// 
-			this.LegendPlacementContext.ImageScalingSize = new System.Drawing.Size(24, 24);
-			this.LegendPlacementContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
-            this.toolStripSeparator2,
-            this.LegendInsideChck,
-            this.toolStripSeparator3,
-            this.toolStripMenuItem1,
-            this.LegendTopBtn,
-            this.LegendCenterBtn,
-            this.LegendBottomBtn,
-            this.toolStripSeparator1,
-            this.horizontalToolStripMenuItem,
-            this.LegendDockTopBtn,
-            this.LegendDockRightBtn,
-            this.LegendDockBottomBtn,
-            this.LegendDockLeftBtn});
-			this.LegendPlacementContext.Name = "LegendPlacementContext";
-			this.LegendPlacementContext.Size = new System.Drawing.Size(178, 264);
-			// 
-			// toolStripMenuItem2
-			// 
-			this.toolStripMenuItem2.Enabled = false;
-			this.toolStripMenuItem2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-			this.toolStripMenuItem2.Size = new System.Drawing.Size(177, 22);
-			this.toolStripMenuItem2.Text = "Legend Placement";
-			// 
-			// toolStripSeparator2
-			// 
-			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(174, 6);
-			// 
-			// LegendInsideChck
-			// 
-			this.LegendInsideChck.CheckOnClick = true;
-			this.LegendInsideChck.Name = "LegendInsideChck";
-			this.LegendInsideChck.Size = new System.Drawing.Size(177, 22);
-			this.LegendInsideChck.Text = "Inside Chart";
-			this.LegendInsideChck.Click += new System.EventHandler(this.LegendInsideChck_Click);
-			// 
-			// toolStripSeparator3
-			// 
-			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(174, 6);
-			// 
-			// toolStripMenuItem1
-			// 
-			this.toolStripMenuItem1.Enabled = false;
-			this.toolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
-			this.toolStripMenuItem1.Text = "Vertical";
-			// 
-			// LegendTopBtn
-			// 
-			this.LegendTopBtn.CheckOnClick = true;
-			this.LegendTopBtn.Name = "LegendTopBtn";
-			this.LegendTopBtn.Size = new System.Drawing.Size(177, 22);
-			this.LegendTopBtn.Text = "Top";
-			this.LegendTopBtn.Click += new System.EventHandler(this.LegendTopBtn_Click);
-			// 
-			// LegendCenterBtn
-			// 
-			this.LegendCenterBtn.CheckOnClick = true;
-			this.LegendCenterBtn.Name = "LegendCenterBtn";
-			this.LegendCenterBtn.Size = new System.Drawing.Size(177, 22);
-			this.LegendCenterBtn.Text = "Center";
-			this.LegendCenterBtn.Click += new System.EventHandler(this.LegendCenterBtn_Click);
-			// 
-			// LegendBottomBtn
-			// 
-			this.LegendBottomBtn.CheckOnClick = true;
-			this.LegendBottomBtn.Name = "LegendBottomBtn";
-			this.LegendBottomBtn.Size = new System.Drawing.Size(177, 22);
-			this.LegendBottomBtn.Text = "Bottom";
-			this.LegendBottomBtn.Click += new System.EventHandler(this.LegendBottomBtn_Click);
-			// 
-			// toolStripSeparator1
-			// 
-			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(174, 6);
-			// 
-			// horizontalToolStripMenuItem
-			// 
-			this.horizontalToolStripMenuItem.Enabled = false;
-			this.horizontalToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-			this.horizontalToolStripMenuItem.Name = "horizontalToolStripMenuItem";
-			this.horizontalToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-			this.horizontalToolStripMenuItem.Text = "Docking";
-			// 
-			// LegendDockTopBtn
-			// 
-			this.LegendDockTopBtn.CheckOnClick = true;
-			this.LegendDockTopBtn.Name = "LegendDockTopBtn";
-			this.LegendDockTopBtn.Size = new System.Drawing.Size(177, 22);
-			this.LegendDockTopBtn.Text = "Top";
-			this.LegendDockTopBtn.Click += new System.EventHandler(this.LegendDockTopBtn_Click);
-			// 
-			// LegendDockRightBtn
-			// 
-			this.LegendDockRightBtn.CheckOnClick = true;
-			this.LegendDockRightBtn.Name = "LegendDockRightBtn";
-			this.LegendDockRightBtn.Size = new System.Drawing.Size(177, 22);
-			this.LegendDockRightBtn.Text = "Right";
-			this.LegendDockRightBtn.Click += new System.EventHandler(this.LegendDockRightBtn_Click);
-			// 
-			// LegendDockBottomBtn
-			// 
-			this.LegendDockBottomBtn.CheckOnClick = true;
-			this.LegendDockBottomBtn.Name = "LegendDockBottomBtn";
-			this.LegendDockBottomBtn.Size = new System.Drawing.Size(177, 22);
-			this.LegendDockBottomBtn.Text = "Bottom";
-			this.LegendDockBottomBtn.Click += new System.EventHandler(this.LegendDockBottomBtn_Click);
-			// 
-			// LegendDockLeftBtn
-			// 
-			this.LegendDockLeftBtn.CheckOnClick = true;
-			this.LegendDockLeftBtn.Name = "LegendDockLeftBtn";
-			this.LegendDockLeftBtn.Size = new System.Drawing.Size(177, 22);
-			this.LegendDockLeftBtn.Text = "Left";
-			this.LegendDockLeftBtn.Click += new System.EventHandler(this.LegendDockLeftBtn_Click);
 			// 
 			// ApplyTitleFontAllChck
 			// 
@@ -339,8 +238,6 @@ namespace JPChart
 			// 
 			// groupBox3
 			// 
-			this.groupBox3.Controls.Add(this.SeriesFitRobustChck);
-			this.groupBox3.Controls.Add(this.SeriesFitNumericUpD);
 			this.groupBox3.Controls.Add(this.ChartSeriesFitDrop);
 			this.groupBox3.Controls.Add(this.label13);
 			this.groupBox3.Controls.Add(this.label12);
@@ -354,8 +251,10 @@ namespace JPChart
 			this.groupBox3.Controls.Add(this.label10);
 			this.groupBox3.Controls.Add(this.label9);
 			this.groupBox3.Controls.Add(this.label8);
-			this.groupBox3.Controls.Add(this.SeriesFitNormalizedChck);
+			this.groupBox3.Controls.Add(this.SeriesFitRobustChck);
+			this.groupBox3.Controls.Add(this.SeriesFitNumericUpD);
 			this.groupBox3.Controls.Add(this.SeriesSplineTypeDrop);
+			this.groupBox3.Controls.Add(this.SeriesFitNormalizedChck);
 			this.groupBox3.Location = new System.Drawing.Point(7, 63);
 			this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.groupBox3.Name = "groupBox3";
@@ -365,61 +264,46 @@ namespace JPChart
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Series";
 			// 
-			// SeriesFitRobustChck
-			// 
-			this.SeriesFitRobustChck.AutoSize = true;
-			this.SeriesFitRobustChck.Location = new System.Drawing.Point(310, 17);
-			this.SeriesFitRobustChck.Name = "SeriesFitRobustChck";
-			this.SeriesFitRobustChck.Size = new System.Drawing.Size(60, 17);
-			this.SeriesFitRobustChck.TabIndex = 21;
-			this.SeriesFitRobustChck.Text = "Robust";
-			this.SeriesFitRobustChck.UseVisualStyleBackColor = true;
-			this.SeriesFitRobustChck.Visible = false;
-			// 
-			// SeriesFitNumericUpD
-			// 
-			this.SeriesFitNumericUpD.Location = new System.Drawing.Point(253, 16);
-			this.SeriesFitNumericUpD.Name = "SeriesFitNumericUpD";
-			this.SeriesFitNumericUpD.Size = new System.Drawing.Size(51, 20);
-			this.SeriesFitNumericUpD.TabIndex = 18;
-			this.SeriesFitNumericUpD.Visible = false;
-			this.SeriesFitNumericUpD.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SeriesFitNumericUpD_KeyDown);
-			// 
 			// ChartSeriesFitDrop
 			// 
-			this.ChartSeriesFitDrop.ContextMenuStrip = this.SeriesRenameDeleteContext;
+			this.ChartSeriesFitDrop.ContextMenuStrip = this.SeriesFitContext;
 			this.ChartSeriesFitDrop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.ChartSeriesFitDrop.DropDownWidth = 92;
 			this.ChartSeriesFitDrop.FormattingEnabled = true;
 			this.ChartSeriesFitDrop.Items.AddRange(new object[] {
             "Polynomial",
             "Spline",
-            "Smoothing Spline",
-            "Radial Gaussian",
-            "Radial Moffat",
-            "Gaussian",
-            "Moffat"});
+            "Smoothing",
+            "Fourier Polynomial"});
 			this.ChartSeriesFitDrop.Location = new System.Drawing.Point(164, 15);
 			this.ChartSeriesFitDrop.Name = "ChartSeriesFitDrop";
 			this.ChartSeriesFitDrop.Size = new System.Drawing.Size(83, 21);
 			this.ChartSeriesFitDrop.TabIndex = 17;
-			this.toolTip1.SetToolTip(this.ChartSeriesFitDrop, "Right Click to Rename");
+			this.toolTip1.SetToolTip(this.ChartSeriesFitDrop, "Right Click to Save Fit Info");
 			this.ChartSeriesFitDrop.SelectedIndexChanged += new System.EventHandler(this.ChartSeriesFitDrop_SelectedIndexChanged);
 			// 
-			// SeriesRenameDeleteContext
+			// SeriesFitContext
 			// 
-			this.SeriesRenameDeleteContext.ImageScalingSize = new System.Drawing.Size(24, 24);
-			this.SeriesRenameDeleteContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem3});
-			this.SeriesRenameDeleteContext.Name = "SeriesContext";
-			this.SeriesRenameDeleteContext.Size = new System.Drawing.Size(181, 48);
-			this.SeriesRenameDeleteContext.Opening += new System.ComponentModel.CancelEventHandler(this.SeriesContext_Opening);
+			this.SeriesFitContext.ImageScalingSize = new System.Drawing.Size(24, 24);
+			this.SeriesFitContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SeriesFitContextCopySolution,
+            this.SeriesFitContextCopyFitData});
+			this.SeriesFitContext.Name = "SeriesFitContext";
+			this.SeriesFitContext.Size = new System.Drawing.Size(217, 48);
 			// 
-			// toolStripMenuItem3
+			// SeriesFitContextCopySolution
 			// 
-			this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-			this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
-			this.toolStripMenuItem3.Text = "toolStripMenuItem3";
+			this.SeriesFitContextCopySolution.Name = "SeriesFitContextCopySolution";
+			this.SeriesFitContextCopySolution.Size = new System.Drawing.Size(216, 22);
+			this.SeriesFitContextCopySolution.Text = "Copy Fit Solution";
+			this.SeriesFitContextCopySolution.Click += new System.EventHandler(this.SeriesFitContextCopySolution_Click);
+			// 
+			// SeriesFitContextCopyFitData
+			// 
+			this.SeriesFitContextCopyFitData.Name = "SeriesFitContextCopyFitData";
+			this.SeriesFitContextCopyFitData.Size = new System.Drawing.Size(216, 22);
+			this.SeriesFitContextCopyFitData.Text = "Copy Data, Fit, && Residuals";
+			this.SeriesFitContextCopyFitData.Click += new System.EventHandler(this.SeriesFitContextCopyFitData_Click);
 			// 
 			// label13
 			// 
@@ -451,6 +335,21 @@ namespace JPChart
 			this.ChartSeriesNumberNameDrop.TabIndex = 15;
 			this.toolTip1.SetToolTip(this.ChartSeriesNumberNameDrop, "Right Click to Rename/Remove");
 			this.ChartSeriesNumberNameDrop.SelectedIndexChanged += new System.EventHandler(this.ChartSeriesNumberNameDrop_SelectedIndexChanged);
+			// 
+			// SeriesRenameDeleteContext
+			// 
+			this.SeriesRenameDeleteContext.ImageScalingSize = new System.Drawing.Size(24, 24);
+			this.SeriesRenameDeleteContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem3});
+			this.SeriesRenameDeleteContext.Name = "SeriesContext";
+			this.SeriesRenameDeleteContext.Size = new System.Drawing.Size(181, 26);
+			this.SeriesRenameDeleteContext.Opening += new System.ComponentModel.CancelEventHandler(this.SeriesContext_Opening);
+			// 
+			// toolStripMenuItem3
+			// 
+			this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+			this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItem3.Text = "toolStripMenuItem3";
 			// 
 			// ChartSeriesMarkerStyleDrop
 			// 
@@ -580,17 +479,24 @@ namespace JPChart
 			this.label8.TabIndex = 7;
 			this.label8.Text = "Plot Style:";
 			// 
-			// SeriesFitNormalizedChck
+			// SeriesFitNumericUpD
 			// 
-			this.SeriesFitNormalizedChck.AutoSize = true;
-			this.SeriesFitNormalizedChck.Location = new System.Drawing.Point(253, 17);
-			this.SeriesFitNormalizedChck.Name = "SeriesFitNormalizedChck";
-			this.SeriesFitNormalizedChck.Size = new System.Drawing.Size(78, 17);
-			this.SeriesFitNormalizedChck.TabIndex = 20;
-			this.SeriesFitNormalizedChck.Text = "Normalized";
-			this.SeriesFitNormalizedChck.UseVisualStyleBackColor = true;
-			this.SeriesFitNormalizedChck.Visible = false;
-			this.SeriesFitNormalizedChck.CheckedChanged += new System.EventHandler(this.SeriesFitNormalizedChck_CheckedChanged);
+			this.SeriesFitNumericUpD.Location = new System.Drawing.Point(324, 16);
+			this.SeriesFitNumericUpD.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+			this.SeriesFitNumericUpD.Name = "SeriesFitNumericUpD";
+			this.SeriesFitNumericUpD.Size = new System.Drawing.Size(51, 20);
+			this.SeriesFitNumericUpD.TabIndex = 18;
+			this.SeriesFitNumericUpD.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.SeriesFitNumericUpD.Visible = false;
+			this.SeriesFitNumericUpD.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SeriesFitNumericUpD_KeyDown);
 			// 
 			// SeriesSplineTypeDrop
 			// 
@@ -612,9 +518,34 @@ namespace JPChart
 			this.SeriesSplineTypeDrop.Visible = false;
 			this.SeriesSplineTypeDrop.SelectedIndexChanged += new System.EventHandler(this.SeriesSplineTypeDrop_SelectedIndexChanged);
 			// 
+			// SeriesFitRobustChck
+			// 
+			this.SeriesFitRobustChck.AutoSize = true;
+			this.SeriesFitRobustChck.Location = new System.Drawing.Point(253, 17);
+			this.SeriesFitRobustChck.Name = "SeriesFitRobustChck";
+			this.SeriesFitRobustChck.Size = new System.Drawing.Size(60, 17);
+			this.SeriesFitRobustChck.TabIndex = 21;
+			this.SeriesFitRobustChck.Text = "Robust";
+			this.SeriesFitRobustChck.UseVisualStyleBackColor = true;
+			this.SeriesFitRobustChck.Visible = false;
+			this.SeriesFitRobustChck.CheckedChanged += new System.EventHandler(this.SeriesFitRobustChck_CheckedChanged);
+			// 
+			// SeriesFitNormalizedChck
+			// 
+			this.SeriesFitNormalizedChck.AutoSize = true;
+			this.SeriesFitNormalizedChck.Location = new System.Drawing.Point(253, 17);
+			this.SeriesFitNormalizedChck.Name = "SeriesFitNormalizedChck";
+			this.SeriesFitNormalizedChck.Size = new System.Drawing.Size(78, 17);
+			this.SeriesFitNormalizedChck.TabIndex = 20;
+			this.SeriesFitNormalizedChck.Text = "Normalized";
+			this.SeriesFitNormalizedChck.UseVisualStyleBackColor = true;
+			this.SeriesFitNormalizedChck.Visible = false;
+			this.SeriesFitNormalizedChck.CheckedChanged += new System.EventHandler(this.SeriesFitNormalizedChck_CheckedChanged);
+			// 
 			// TabXAxis
 			// 
 			this.TabXAxis.BackColor = System.Drawing.SystemColors.Control;
+			this.TabXAxis.Controls.Add(this.groupBox6);
 			this.TabXAxis.Controls.Add(this.groupBox5);
 			this.TabXAxis.Controls.Add(this.FontBtnXAxis);
 			this.TabXAxis.Controls.Add(this.label6);
@@ -622,18 +553,104 @@ namespace JPChart
 			this.TabXAxis.Controls.Add(this.groupBox2);
 			this.TabXAxis.Location = new System.Drawing.Point(4, 22);
 			this.TabXAxis.Name = "TabXAxis";
-			this.TabXAxis.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+			this.TabXAxis.Padding = new System.Windows.Forms.Padding(3);
 			this.TabXAxis.Size = new System.Drawing.Size(402, 183);
 			this.TabXAxis.TabIndex = 1;
 			this.TabXAxis.Text = "X - Axis";
+			// 
+			// groupBox6
+			// 
+			this.groupBox6.Controls.Add(this.XAxisMinorTickSpacingTextBox);
+			this.groupBox6.Controls.Add(this.XAxisTickSpacingTextBox);
+			this.groupBox6.Controls.Add(this.label15);
+			this.groupBox6.Controls.Add(this.XAxisFontSizeUpD);
+			this.groupBox6.Controls.Add(this.label14);
+			this.groupBox6.Controls.Add(this.XAxisMinorTickChck);
+			this.groupBox6.Location = new System.Drawing.Point(8, 133);
+			this.groupBox6.Name = "groupBox6";
+			this.groupBox6.Size = new System.Drawing.Size(386, 44);
+			this.groupBox6.TabIndex = 16;
+			this.groupBox6.TabStop = false;
+			this.groupBox6.Text = "X Axis Labels";
+			// 
+			// XAxisMinorTickSpacingTextBox
+			// 
+			this.XAxisMinorTickSpacingTextBox.Enabled = false;
+			this.XAxisMinorTickSpacingTextBox.Location = new System.Drawing.Point(89, 17);
+			this.XAxisMinorTickSpacingTextBox.Name = "XAxisMinorTickSpacingTextBox";
+			this.XAxisMinorTickSpacingTextBox.Size = new System.Drawing.Size(57, 20);
+			this.XAxisMinorTickSpacingTextBox.TabIndex = 7;
+			this.XAxisMinorTickSpacingTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.XAxisMinorTickSpacingTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.XAxisMinorTickSpacingTextBox_KeyDown);
+			// 
+			// XAxisTickSpacingTextBox
+			// 
+			this.XAxisTickSpacingTextBox.Location = new System.Drawing.Point(221, 15);
+			this.XAxisTickSpacingTextBox.Name = "XAxisTickSpacingTextBox";
+			this.XAxisTickSpacingTextBox.Size = new System.Drawing.Size(57, 20);
+			this.XAxisTickSpacingTextBox.TabIndex = 6;
+			this.XAxisTickSpacingTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.XAxisTickSpacingTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.XAxisTickSpacingText_KeyDown);
+			// 
+			// label15
+			// 
+			this.label15.Location = new System.Drawing.Point(152, 9);
+			this.label15.Name = "label15";
+			this.label15.Size = new System.Drawing.Size(63, 33);
+			this.label15.TabIndex = 5;
+			this.label15.Text = "Major Tick Spacing:";
+			this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// XAxisFontSizeUpD
+			// 
+			this.XAxisFontSizeUpD.Location = new System.Drawing.Point(326, 15);
+			this.XAxisFontSizeUpD.Maximum = new decimal(new int[] {
+            36,
+            0,
+            0,
+            0});
+			this.XAxisFontSizeUpD.Minimum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+			this.XAxisFontSizeUpD.Name = "XAxisFontSizeUpD";
+			this.XAxisFontSizeUpD.Size = new System.Drawing.Size(36, 20);
+			this.XAxisFontSizeUpD.TabIndex = 4;
+			this.XAxisFontSizeUpD.Value = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+			this.XAxisFontSizeUpD.KeyDown += new System.Windows.Forms.KeyEventHandler(this.XAxisFontSizeUpD_KeyDown);
+			// 
+			// label14
+			// 
+			this.label14.Location = new System.Drawing.Point(284, 11);
+			this.label14.Name = "label14";
+			this.label14.Size = new System.Drawing.Size(36, 28);
+			this.label14.TabIndex = 3;
+			this.label14.Text = "Font Size:";
+			this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// XAxisMinorTickChck
+			// 
+			this.XAxisMinorTickChck.AutoSize = true;
+			this.XAxisMinorTickChck.Location = new System.Drawing.Point(6, 19);
+			this.XAxisMinorTickChck.Name = "XAxisMinorTickChck";
+			this.XAxisMinorTickChck.Size = new System.Drawing.Size(77, 17);
+			this.XAxisMinorTickChck.TabIndex = 0;
+			this.XAxisMinorTickChck.Text = "Minor ticks";
+			this.XAxisMinorTickChck.UseVisualStyleBackColor = true;
+			this.XAxisMinorTickChck.CheckedChanged += new System.EventHandler(this.XAxisMinorTickChck_CheckedChanged);
 			// 
 			// groupBox5
 			// 
 			this.groupBox5.Controls.Add(this.XAxisGridChck);
 			this.groupBox5.Controls.Add(this.XAxisLogarithmicChck);
-			this.groupBox5.Location = new System.Drawing.Point(268, 63);
+			this.groupBox5.Location = new System.Drawing.Point(244, 46);
 			this.groupBox5.Name = "groupBox5";
-			this.groupBox5.Size = new System.Drawing.Size(126, 75);
+			this.groupBox5.Size = new System.Drawing.Size(149, 81);
 			this.groupBox5.TabIndex = 15;
 			this.groupBox5.TabStop = false;
 			this.groupBox5.Text = "X Axis Scale";
@@ -641,7 +658,7 @@ namespace JPChart
 			// XAxisGridChck
 			// 
 			this.XAxisGridChck.AutoSize = true;
-			this.XAxisGridChck.Location = new System.Drawing.Point(6, 42);
+			this.XAxisGridChck.Location = new System.Drawing.Point(6, 51);
 			this.XAxisGridChck.Name = "XAxisGridChck";
 			this.XAxisGridChck.Size = new System.Drawing.Size(73, 17);
 			this.XAxisGridChck.TabIndex = 1;
@@ -652,7 +669,7 @@ namespace JPChart
 			// XAxisLogarithmicChck
 			// 
 			this.XAxisLogarithmicChck.AutoSize = true;
-			this.XAxisLogarithmicChck.Location = new System.Drawing.Point(6, 19);
+			this.XAxisLogarithmicChck.Location = new System.Drawing.Point(6, 25);
 			this.XAxisLogarithmicChck.Name = "XAxisLogarithmicChck";
 			this.XAxisLogarithmicChck.Size = new System.Drawing.Size(80, 17);
 			this.XAxisLogarithmicChck.TabIndex = 0;
@@ -699,9 +716,9 @@ namespace JPChart
 			this.groupBox2.Controls.Add(this.label3);
 			this.groupBox2.Controls.Add(this.XAxisMinAutoChck);
 			this.groupBox2.Controls.Add(this.label4);
-			this.groupBox2.Location = new System.Drawing.Point(7, 63);
+			this.groupBox2.Location = new System.Drawing.Point(7, 46);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(255, 81);
+			this.groupBox2.Size = new System.Drawing.Size(228, 81);
 			this.groupBox2.TabIndex = 11;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "X Axis Range";
@@ -709,7 +726,7 @@ namespace JPChart
 			// XAxisMaxTightChck
 			// 
 			this.XAxisMaxTightChck.AutoSize = true;
-			this.XAxisMaxTightChck.Location = new System.Drawing.Point(199, 51);
+			this.XAxisMaxTightChck.Location = new System.Drawing.Point(173, 51);
 			this.XAxisMaxTightChck.Name = "XAxisMaxTightChck";
 			this.XAxisMaxTightChck.Size = new System.Drawing.Size(50, 17);
 			this.XAxisMaxTightChck.TabIndex = 11;
@@ -720,7 +737,7 @@ namespace JPChart
 			// XAxisMinTightChck
 			// 
 			this.XAxisMinTightChck.AutoSize = true;
-			this.XAxisMinTightChck.Location = new System.Drawing.Point(199, 25);
+			this.XAxisMinTightChck.Location = new System.Drawing.Point(173, 25);
 			this.XAxisMinTightChck.Name = "XAxisMinTightChck";
 			this.XAxisMinTightChck.Size = new System.Drawing.Size(50, 17);
 			this.XAxisMinTightChck.TabIndex = 10;
@@ -732,7 +749,7 @@ namespace JPChart
 			// 
 			this.XAxisMaxTxt.Location = new System.Drawing.Point(63, 49);
 			this.XAxisMaxTxt.Name = "XAxisMaxTxt";
-			this.XAxisMaxTxt.Size = new System.Drawing.Size(85, 20);
+			this.XAxisMaxTxt.Size = new System.Drawing.Size(57, 20);
 			this.XAxisMaxTxt.TabIndex = 4;
 			this.XAxisMaxTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.XAxisMaxTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.XAxisMinTxt_KeyDown);
@@ -741,7 +758,7 @@ namespace JPChart
 			// 
 			this.XAxisMinTxt.Location = new System.Drawing.Point(63, 23);
 			this.XAxisMinTxt.Name = "XAxisMinTxt";
-			this.XAxisMinTxt.Size = new System.Drawing.Size(85, 20);
+			this.XAxisMinTxt.Size = new System.Drawing.Size(57, 20);
 			this.XAxisMinTxt.TabIndex = 3;
 			this.XAxisMinTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.XAxisMinTxt.TextChanged += new System.EventHandler(this.XAxisMinTxt_TextChanged);
@@ -752,7 +769,7 @@ namespace JPChart
 			this.XAxisMaxAutoChck.AutoSize = true;
 			this.XAxisMaxAutoChck.Checked = true;
 			this.XAxisMaxAutoChck.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.XAxisMaxAutoChck.Location = new System.Drawing.Point(152, 51);
+			this.XAxisMaxAutoChck.Location = new System.Drawing.Point(126, 51);
 			this.XAxisMaxAutoChck.Name = "XAxisMaxAutoChck";
 			this.XAxisMaxAutoChck.Size = new System.Drawing.Size(48, 17);
 			this.XAxisMaxAutoChck.TabIndex = 4;
@@ -774,7 +791,7 @@ namespace JPChart
 			this.XAxisMinAutoChck.AutoSize = true;
 			this.XAxisMinAutoChck.Checked = true;
 			this.XAxisMinAutoChck.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.XAxisMinAutoChck.Location = new System.Drawing.Point(152, 25);
+			this.XAxisMinAutoChck.Location = new System.Drawing.Point(126, 25);
 			this.XAxisMinAutoChck.Name = "XAxisMinAutoChck";
 			this.XAxisMinAutoChck.Size = new System.Drawing.Size(48, 17);
 			this.XAxisMinAutoChck.TabIndex = 3;
@@ -794,6 +811,7 @@ namespace JPChart
 			// TabYAxis
 			// 
 			this.TabYAxis.BackColor = System.Drawing.SystemColors.Control;
+			this.TabYAxis.Controls.Add(this.groupBox7);
 			this.TabYAxis.Controls.Add(this.groupBox4);
 			this.TabYAxis.Controls.Add(this.FontBtnYAxis);
 			this.TabYAxis.Controls.Add(this.label7);
@@ -805,13 +823,99 @@ namespace JPChart
 			this.TabYAxis.TabIndex = 2;
 			this.TabYAxis.Text = "Y - Axis";
 			// 
+			// groupBox7
+			// 
+			this.groupBox7.Controls.Add(this.YAxisMinorTickSpacingTextBox);
+			this.groupBox7.Controls.Add(this.label17);
+			this.groupBox7.Controls.Add(this.YAxisFontSizeUpD);
+			this.groupBox7.Controls.Add(this.YAxisTickSpacingTextBox);
+			this.groupBox7.Controls.Add(this.label16);
+			this.groupBox7.Controls.Add(this.YAxisMinorTickChck);
+			this.groupBox7.Location = new System.Drawing.Point(8, 133);
+			this.groupBox7.Name = "groupBox7";
+			this.groupBox7.Size = new System.Drawing.Size(386, 44);
+			this.groupBox7.TabIndex = 17;
+			this.groupBox7.TabStop = false;
+			this.groupBox7.Text = "Y Axis Labels";
+			// 
+			// YAxisMinorTickSpacingTextBox
+			// 
+			this.YAxisMinorTickSpacingTextBox.Enabled = false;
+			this.YAxisMinorTickSpacingTextBox.Location = new System.Drawing.Point(89, 17);
+			this.YAxisMinorTickSpacingTextBox.Name = "YAxisMinorTickSpacingTextBox";
+			this.YAxisMinorTickSpacingTextBox.Size = new System.Drawing.Size(57, 20);
+			this.YAxisMinorTickSpacingTextBox.TabIndex = 8;
+			this.YAxisMinorTickSpacingTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.YAxisMinorTickSpacingTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.YAxisMinorTickSpacingTextBox_KeyDown);
+			// 
+			// label17
+			// 
+			this.label17.Location = new System.Drawing.Point(284, 11);
+			this.label17.Name = "label17";
+			this.label17.Size = new System.Drawing.Size(36, 28);
+			this.label17.TabIndex = 3;
+			this.label17.Text = "Font Size:";
+			this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// YAxisFontSizeUpD
+			// 
+			this.YAxisFontSizeUpD.Location = new System.Drawing.Point(326, 15);
+			this.YAxisFontSizeUpD.Maximum = new decimal(new int[] {
+            36,
+            0,
+            0,
+            0});
+			this.YAxisFontSizeUpD.Minimum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+			this.YAxisFontSizeUpD.Name = "YAxisFontSizeUpD";
+			this.YAxisFontSizeUpD.Size = new System.Drawing.Size(36, 20);
+			this.YAxisFontSizeUpD.TabIndex = 4;
+			this.YAxisFontSizeUpD.Value = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+			this.YAxisFontSizeUpD.KeyDown += new System.Windows.Forms.KeyEventHandler(this.YAxisFontSizeUpD_KeyDown);
+			// 
+			// YAxisTickSpacingTextBox
+			// 
+			this.YAxisTickSpacingTextBox.Location = new System.Drawing.Point(221, 15);
+			this.YAxisTickSpacingTextBox.Name = "YAxisTickSpacingTextBox";
+			this.YAxisTickSpacingTextBox.Size = new System.Drawing.Size(57, 20);
+			this.YAxisTickSpacingTextBox.TabIndex = 6;
+			this.YAxisTickSpacingTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.YAxisTickSpacingTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.YAxisTickSpacingTextBox_KeyDown);
+			// 
+			// label16
+			// 
+			this.label16.Location = new System.Drawing.Point(152, 9);
+			this.label16.Name = "label16";
+			this.label16.Size = new System.Drawing.Size(63, 33);
+			this.label16.TabIndex = 5;
+			this.label16.Text = "Major Tick Spacing:";
+			this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// YAxisMinorTickChck
+			// 
+			this.YAxisMinorTickChck.AutoSize = true;
+			this.YAxisMinorTickChck.Location = new System.Drawing.Point(6, 19);
+			this.YAxisMinorTickChck.Name = "YAxisMinorTickChck";
+			this.YAxisMinorTickChck.Size = new System.Drawing.Size(77, 17);
+			this.YAxisMinorTickChck.TabIndex = 0;
+			this.YAxisMinorTickChck.Text = "Minor ticks";
+			this.YAxisMinorTickChck.UseVisualStyleBackColor = true;
+			this.YAxisMinorTickChck.CheckedChanged += new System.EventHandler(this.YAxisMinorTickChck_CheckedChanged);
+			// 
 			// groupBox4
 			// 
 			this.groupBox4.Controls.Add(this.YAxisGridChck);
 			this.groupBox4.Controls.Add(this.YAxisLogarithmicChck);
-			this.groupBox4.Location = new System.Drawing.Point(268, 63);
+			this.groupBox4.Location = new System.Drawing.Point(244, 46);
 			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(126, 75);
+			this.groupBox4.Size = new System.Drawing.Size(149, 81);
 			this.groupBox4.TabIndex = 14;
 			this.groupBox4.TabStop = false;
 			this.groupBox4.Text = "Y Axis Scale";
@@ -819,7 +923,7 @@ namespace JPChart
 			// YAxisGridChck
 			// 
 			this.YAxisGridChck.AutoSize = true;
-			this.YAxisGridChck.Location = new System.Drawing.Point(6, 42);
+			this.YAxisGridChck.Location = new System.Drawing.Point(6, 51);
 			this.YAxisGridChck.Name = "YAxisGridChck";
 			this.YAxisGridChck.Size = new System.Drawing.Size(73, 17);
 			this.YAxisGridChck.TabIndex = 2;
@@ -830,7 +934,7 @@ namespace JPChart
 			// YAxisLogarithmicChck
 			// 
 			this.YAxisLogarithmicChck.AutoSize = true;
-			this.YAxisLogarithmicChck.Location = new System.Drawing.Point(6, 19);
+			this.YAxisLogarithmicChck.Location = new System.Drawing.Point(6, 25);
 			this.YAxisLogarithmicChck.Name = "YAxisLogarithmicChck";
 			this.YAxisLogarithmicChck.Size = new System.Drawing.Size(80, 17);
 			this.YAxisLogarithmicChck.TabIndex = 0;
@@ -877,9 +981,9 @@ namespace JPChart
 			this.groupBox1.Controls.Add(this.label2);
 			this.groupBox1.Controls.Add(this.YAxisMinAutoChck);
 			this.groupBox1.Controls.Add(this.label1);
-			this.groupBox1.Location = new System.Drawing.Point(7, 63);
+			this.groupBox1.Location = new System.Drawing.Point(7, 46);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(255, 81);
+			this.groupBox1.Size = new System.Drawing.Size(228, 81);
 			this.groupBox1.TabIndex = 10;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Y Axis Range";
@@ -887,7 +991,7 @@ namespace JPChart
 			// YAxisMaxTightChck
 			// 
 			this.YAxisMaxTightChck.AutoSize = true;
-			this.YAxisMaxTightChck.Location = new System.Drawing.Point(199, 51);
+			this.YAxisMaxTightChck.Location = new System.Drawing.Point(173, 51);
 			this.YAxisMaxTightChck.Name = "YAxisMaxTightChck";
 			this.YAxisMaxTightChck.Size = new System.Drawing.Size(50, 17);
 			this.YAxisMaxTightChck.TabIndex = 9;
@@ -898,7 +1002,7 @@ namespace JPChart
 			// YAxisMinTightChck
 			// 
 			this.YAxisMinTightChck.AutoSize = true;
-			this.YAxisMinTightChck.Location = new System.Drawing.Point(199, 25);
+			this.YAxisMinTightChck.Location = new System.Drawing.Point(173, 25);
 			this.YAxisMinTightChck.Name = "YAxisMinTightChck";
 			this.YAxisMinTightChck.Size = new System.Drawing.Size(50, 17);
 			this.YAxisMinTightChck.TabIndex = 8;
@@ -910,7 +1014,7 @@ namespace JPChart
 			// 
 			this.YAxisMaxTxt.Location = new System.Drawing.Point(63, 49);
 			this.YAxisMaxTxt.Name = "YAxisMaxTxt";
-			this.YAxisMaxTxt.Size = new System.Drawing.Size(85, 20);
+			this.YAxisMaxTxt.Size = new System.Drawing.Size(57, 20);
 			this.YAxisMaxTxt.TabIndex = 6;
 			this.YAxisMaxTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.YAxisMaxTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.YAxisMinTxt_KeyDown);
@@ -920,7 +1024,7 @@ namespace JPChart
 			this.YAxisMaxAutoChck.AutoSize = true;
 			this.YAxisMaxAutoChck.Checked = true;
 			this.YAxisMaxAutoChck.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.YAxisMaxAutoChck.Location = new System.Drawing.Point(152, 51);
+			this.YAxisMaxAutoChck.Location = new System.Drawing.Point(126, 51);
 			this.YAxisMaxAutoChck.Name = "YAxisMaxAutoChck";
 			this.YAxisMaxAutoChck.Size = new System.Drawing.Size(48, 17);
 			this.YAxisMaxAutoChck.TabIndex = 4;
@@ -932,7 +1036,7 @@ namespace JPChart
 			// 
 			this.YAxisMinTxt.Location = new System.Drawing.Point(63, 23);
 			this.YAxisMinTxt.Name = "YAxisMinTxt";
-			this.YAxisMinTxt.Size = new System.Drawing.Size(85, 20);
+			this.YAxisMinTxt.Size = new System.Drawing.Size(57, 20);
 			this.YAxisMinTxt.TabIndex = 5;
 			this.YAxisMinTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.YAxisMinTxt.TextChanged += new System.EventHandler(this.YAxisMinTxt_TextChanged);
@@ -952,7 +1056,7 @@ namespace JPChart
 			this.YAxisMinAutoChck.AutoSize = true;
 			this.YAxisMinAutoChck.Checked = true;
 			this.YAxisMinAutoChck.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.YAxisMinAutoChck.Location = new System.Drawing.Point(152, 25);
+			this.YAxisMinAutoChck.Location = new System.Drawing.Point(126, 25);
 			this.YAxisMinAutoChck.Name = "YAxisMinAutoChck";
 			this.YAxisMinAutoChck.Size = new System.Drawing.Size(48, 17);
 			this.YAxisMinAutoChck.TabIndex = 3;
@@ -968,6 +1072,144 @@ namespace JPChart
 			this.label1.Size = new System.Drawing.Size(51, 13);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Minimum:";
+			// 
+			// LegendChckContext
+			// 
+			this.LegendChckContext.ImageScalingSize = new System.Drawing.Size(24, 24);
+			this.LegendChckContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.LegendFontBtn,
+            this.toolStripSeparator4,
+            this.toolStripMenuItem2,
+            this.toolStripSeparator2,
+            this.LegendInsideChck,
+            this.toolStripSeparator3,
+            this.toolStripMenuItem1,
+            this.LegendTopBtn,
+            this.LegendCenterBtn,
+            this.LegendBottomBtn,
+            this.toolStripSeparator1,
+            this.horizontalToolStripMenuItem,
+            this.LegendDockTopBtn,
+            this.LegendDockRightBtn,
+            this.LegendDockBottomBtn,
+            this.LegendDockLeftBtn});
+			this.LegendChckContext.Name = "LegendPlacementContext";
+			this.LegendChckContext.Size = new System.Drawing.Size(178, 292);
+			// 
+			// LegendFontBtn
+			// 
+			this.LegendFontBtn.Name = "LegendFontBtn";
+			this.LegendFontBtn.Size = new System.Drawing.Size(177, 22);
+			this.LegendFontBtn.Text = "Font";
+			this.LegendFontBtn.Click += new System.EventHandler(this.LegendFontBtn_Click);
+			// 
+			// toolStripSeparator4
+			// 
+			this.toolStripSeparator4.Name = "toolStripSeparator4";
+			this.toolStripSeparator4.Size = new System.Drawing.Size(174, 6);
+			// 
+			// toolStripMenuItem2
+			// 
+			this.toolStripMenuItem2.Enabled = false;
+			this.toolStripMenuItem2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+			this.toolStripMenuItem2.Size = new System.Drawing.Size(177, 22);
+			this.toolStripMenuItem2.Text = "Legend Placement";
+			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(174, 6);
+			// 
+			// LegendInsideChck
+			// 
+			this.LegendInsideChck.CheckOnClick = true;
+			this.LegendInsideChck.Name = "LegendInsideChck";
+			this.LegendInsideChck.Size = new System.Drawing.Size(177, 22);
+			this.LegendInsideChck.Text = "Inside Chart";
+			this.LegendInsideChck.Click += new System.EventHandler(this.LegendInsideChck_Click);
+			// 
+			// toolStripSeparator3
+			// 
+			this.toolStripSeparator3.Name = "toolStripSeparator3";
+			this.toolStripSeparator3.Size = new System.Drawing.Size(174, 6);
+			// 
+			// toolStripMenuItem1
+			// 
+			this.toolStripMenuItem1.Enabled = false;
+			this.toolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
+			this.toolStripMenuItem1.Text = "Vertical";
+			// 
+			// LegendTopBtn
+			// 
+			this.LegendTopBtn.CheckOnClick = true;
+			this.LegendTopBtn.Name = "LegendTopBtn";
+			this.LegendTopBtn.Size = new System.Drawing.Size(177, 22);
+			this.LegendTopBtn.Text = "Top";
+			this.LegendTopBtn.Click += new System.EventHandler(this.LegendTopBtn_Click);
+			// 
+			// LegendCenterBtn
+			// 
+			this.LegendCenterBtn.CheckOnClick = true;
+			this.LegendCenterBtn.Name = "LegendCenterBtn";
+			this.LegendCenterBtn.Size = new System.Drawing.Size(177, 22);
+			this.LegendCenterBtn.Text = "Center";
+			this.LegendCenterBtn.Click += new System.EventHandler(this.LegendCenterBtn_Click);
+			// 
+			// LegendBottomBtn
+			// 
+			this.LegendBottomBtn.CheckOnClick = true;
+			this.LegendBottomBtn.Name = "LegendBottomBtn";
+			this.LegendBottomBtn.Size = new System.Drawing.Size(177, 22);
+			this.LegendBottomBtn.Text = "Bottom";
+			this.LegendBottomBtn.Click += new System.EventHandler(this.LegendBottomBtn_Click);
+			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(174, 6);
+			// 
+			// horizontalToolStripMenuItem
+			// 
+			this.horizontalToolStripMenuItem.Enabled = false;
+			this.horizontalToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+			this.horizontalToolStripMenuItem.Name = "horizontalToolStripMenuItem";
+			this.horizontalToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+			this.horizontalToolStripMenuItem.Text = "Docking";
+			// 
+			// LegendDockTopBtn
+			// 
+			this.LegendDockTopBtn.CheckOnClick = true;
+			this.LegendDockTopBtn.Name = "LegendDockTopBtn";
+			this.LegendDockTopBtn.Size = new System.Drawing.Size(177, 22);
+			this.LegendDockTopBtn.Text = "Top";
+			this.LegendDockTopBtn.Click += new System.EventHandler(this.LegendDockTopBtn_Click);
+			// 
+			// LegendDockRightBtn
+			// 
+			this.LegendDockRightBtn.CheckOnClick = true;
+			this.LegendDockRightBtn.Name = "LegendDockRightBtn";
+			this.LegendDockRightBtn.Size = new System.Drawing.Size(177, 22);
+			this.LegendDockRightBtn.Text = "Right";
+			this.LegendDockRightBtn.Click += new System.EventHandler(this.LegendDockRightBtn_Click);
+			// 
+			// LegendDockBottomBtn
+			// 
+			this.LegendDockBottomBtn.CheckOnClick = true;
+			this.LegendDockBottomBtn.Name = "LegendDockBottomBtn";
+			this.LegendDockBottomBtn.Size = new System.Drawing.Size(177, 22);
+			this.LegendDockBottomBtn.Text = "Bottom";
+			this.LegendDockBottomBtn.Click += new System.EventHandler(this.LegendDockBottomBtn_Click);
+			// 
+			// LegendDockLeftBtn
+			// 
+			this.LegendDockLeftBtn.CheckOnClick = true;
+			this.LegendDockLeftBtn.Name = "LegendDockLeftBtn";
+			this.LegendDockLeftBtn.Size = new System.Drawing.Size(177, 22);
+			this.LegendDockLeftBtn.Text = "Left";
+			this.LegendDockLeftBtn.Click += new System.EventHandler(this.LegendDockLeftBtn_Click);
 			// 
 			// CloseBtn
 			// 
@@ -1004,12 +1246,18 @@ namespace JPChart
 			// 
 			// toolTip1
 			// 
-			this.toolTip1.AutomaticDelay = 75;
+			this.toolTip1.AutomaticDelay = 25;
 			this.toolTip1.AutoPopDelay = 5000;
-			this.toolTip1.InitialDelay = 75;
-			this.toolTip1.ReshowDelay = 15;
+			this.toolTip1.InitialDelay = 25;
+			this.toolTip1.ReshowDelay = 5;
 			this.toolTip1.UseAnimation = false;
 			this.toolTip1.UseFading = false;
+			// 
+			// FontDialogLegend
+			// 
+			this.FontDialogLegend.ShowApply = true;
+			this.FontDialogLegend.ShowColor = true;
+			this.FontDialogLegend.Apply += new System.EventHandler(this.FontDialogLegend_Apply);
 			// 
 			// ChartProperties
 			// 
@@ -1032,25 +1280,32 @@ namespace JPChart
 			this.ChartPropertiesTab.ResumeLayout(false);
 			this.TabChart.ResumeLayout(false);
 			this.TabChart.PerformLayout();
-			this.LegendPlacementContext.ResumeLayout(false);
 			this.groupBox3.ResumeLayout(false);
 			this.groupBox3.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.SeriesFitNumericUpD)).EndInit();
+			this.SeriesFitContext.ResumeLayout(false);
 			this.SeriesRenameDeleteContext.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.ChartSeriesLineWidthUpD)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.ChartSeriesMarkerSizeUpD)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.SeriesFitNumericUpD)).EndInit();
 			this.TabXAxis.ResumeLayout(false);
 			this.TabXAxis.PerformLayout();
+			this.groupBox6.ResumeLayout(false);
+			this.groupBox6.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.XAxisFontSizeUpD)).EndInit();
 			this.groupBox5.ResumeLayout(false);
 			this.groupBox5.PerformLayout();
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
 			this.TabYAxis.ResumeLayout(false);
 			this.TabYAxis.PerformLayout();
+			this.groupBox7.ResumeLayout(false);
+			this.groupBox7.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.YAxisFontSizeUpD)).EndInit();
 			this.groupBox4.ResumeLayout(false);
 			this.groupBox4.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
+			this.LegendChckContext.ResumeLayout(false);
 			this.ResumeLayout(false);
 
         }
@@ -1108,16 +1363,12 @@ namespace JPChart
         private System.Windows.Forms.FontDialog FontDialogXAxis;
         private System.Windows.Forms.FontDialog FontDialogYAxis;
         private System.Windows.Forms.ColorDialog SeriesColourDlg;
-
-        public JPChart CHART;
-        public System.Windows.Forms.DataVisualization.Charting.ChartArea CHARTAREA;
-
         public System.Windows.Forms.TabControl ChartPropertiesTab;
         private System.Windows.Forms.CheckBox XAxisGridChck;
         private System.Windows.Forms.CheckBox YAxisGridChck;
         private System.Windows.Forms.CheckBox ChartSeriesLegendChck;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.ContextMenuStrip LegendPlacementContext;
+        private System.Windows.Forms.ContextMenuStrip LegendChckContext;
         private System.Windows.Forms.ToolStripMenuItem LegendTopBtn;
         private System.Windows.Forms.ToolStripMenuItem LegendCenterBtn;
         private System.Windows.Forms.ToolStripMenuItem LegendBottomBtn;
@@ -1140,5 +1391,25 @@ namespace JPChart
 		private System.Windows.Forms.ComboBox SeriesSplineTypeDrop;
 		private System.Windows.Forms.CheckBox SeriesFitNormalizedChck;
 		private System.Windows.Forms.CheckBox SeriesFitRobustChck;
+		private System.Windows.Forms.ContextMenuStrip SeriesFitContext;
+		private System.Windows.Forms.ToolStripMenuItem SeriesFitContextCopySolution;
+		private System.Windows.Forms.ToolStripMenuItem SeriesFitContextCopyFitData;
+		private System.Windows.Forms.FontDialog FontDialogLegend;
+		private System.Windows.Forms.ToolStripMenuItem LegendFontBtn;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+		private System.Windows.Forms.GroupBox groupBox6;
+		private System.Windows.Forms.CheckBox XAxisMinorTickChck;
+		private System.Windows.Forms.NumericUpDown XAxisFontSizeUpD;
+		private System.Windows.Forms.Label label14;
+		private System.Windows.Forms.Label label15;
+		public System.Windows.Forms.TextBox XAxisTickSpacingTextBox;
+		private System.Windows.Forms.GroupBox groupBox7;
+		public System.Windows.Forms.TextBox YAxisTickSpacingTextBox;
+		private System.Windows.Forms.Label label16;
+		private System.Windows.Forms.NumericUpDown YAxisFontSizeUpD;
+		private System.Windows.Forms.Label label17;
+		private System.Windows.Forms.CheckBox YAxisMinorTickChck;
+		public System.Windows.Forms.TextBox XAxisMinorTickSpacingTextBox;
+		public System.Windows.Forms.TextBox YAxisMinorTickSpacingTextBox;
 	}
 }

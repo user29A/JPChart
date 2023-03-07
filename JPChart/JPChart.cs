@@ -1,19 +1,52 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
+using System.Reflection.Emit;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization;
 using System.Windows.Forms.DataVisualization.Charting;
+#nullable enable
 
 namespace JPChart
 {
-    public partial class JPChart: System.Windows.Forms.DataVisualization.Charting.Chart
+	/// <summary>
+	/// Specifies the SeriesChartType from a list of valid options.
+	/// </summary>
+	public enum SeriesType
+	{
+		Point = SeriesChartType.Point,
+
+		FastPoint = SeriesChartType.FastPoint,
+
+		Line = SeriesChartType.Line,
+
+		FastLine = SeriesChartType.FastLine,
+
+		StepLine = SeriesChartType.StepLine,
+
+		Column = SeriesChartType.Column
+	}
+
+	public partial class JPChartControl: System.Windows.Forms.DataVisualization.Charting.Chart
     {
-        public JPChart()
+		#region PRIVATE
+
+		bool DOZOOM;
+        bool TOOLTIPISSHOWN;
+        int CURRENTMOUSEEX;
+        int CURRENTMOUSEEY;
+        public bool AXESAUTO, AXESTIGHT, AXESMAN;
+        public double DATAMINX, DATAMAXX, DATAMINY, DATAMAXY;
+        public double AXESMANMINX, AXESMANMAXX, AXESMANMINY, AXESMANMAXY;
+        Color[] PLOTCOLORS;
+        int PLOTCOLORINDEX;
+        string TOUCHEDSERIES;
+        bool TOUCHEDSERIESBOLDED;
+
+		#endregion
+
+		#region CONSTRUCTORS
+
+		public JPChartControl()
         {
             InitializeComponent();
 
@@ -28,9 +61,19 @@ namespace JPChart
             DATAMAXX = Double.MinValue;
             DATAMINY = Double.MaxValue;
             DATAMAXY = Double.MinValue;
-        }
+			PLOTCOLORS = new Color[] { Color.Black, Color.Blue, Color.Red, Color.Green, Color.DeepPink, Color.Aqua, Color.Crimson, Color.DarkGoldenrod, Color.Chartreuse, Color.HotPink };
+            PLOTCOLORINDEX = 0;
+            TOUCHEDSERIES = "";
+            TOUCHEDSERIESBOLDED = false;
 
-        public static void SetReg(string programName, string keyName, object keyValue)
+            //this.ChartAreas[0].BorderColor = Color.Black;
+			//this.ChartAreas[0].BorderWidth = 2;
+		}
+
+		#endregion
+
+
+		public static void SetReg(string programName, string keyName, object keyValue)
         {
             Microsoft.Win32.RegistryKey user = Microsoft.Win32.Registry.CurrentUser;
             Microsoft.Win32.RegistryKey sw = user.OpenSubKey("Software", true);
@@ -82,10 +125,15 @@ namespace JPChart
         
         private void ChartContextZoomResetBtn_Click(object sender, System.EventArgs e)
         {
-            ChartContextZoomResetBtn.Visible = false;
-            ChartContextAutoAxesChck.Checked = true;
-            ChartContextAutoAxesChck.PerformClick();
-        }
+			//ChartContextZoomResetBtn.Visible = false;
+			//ChartContextAutoAxesChck.Checked = true;
+			//ChartContextAutoAxesChck.PerformClick();
+
+			this.SuspendLayout();
+			this.ChartAreas[0].AxisX.ScaleView.ZoomReset();
+			this.ChartAreas[0].AxisY.ScaleView.ZoomReset();
+			this.ResumeLayout();
+		}
         
         private void ChartContextAutoAxesChck_Click(object sender, System.EventArgs e)
         {
@@ -146,11 +194,11 @@ namespace JPChart
         
         private void ChartContextPropertiesBtn_Click(object sender, System.EventArgs e)
         {
-            CP = new ChartProperties(this);
+			ChartProperties CP = new ChartProperties(this);
             CP.ShowDialog();
-        }
-        
-        private void ChartContextCopyImageBtn_Click(object sender, System.EventArgs e)
+		}
+
+		private void ChartContextCopyImageBtn_Click(object sender, System.EventArgs e)
         {
             System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(this.Width, this.Height);
             this.DrawToBitmap(bmp, this.DisplayRectangle);
@@ -162,8 +210,8 @@ namespace JPChart
         {
             string text = "";
 
-            for (int i = 0; i < XDATA.Length; i++)
-                text += XDATA[i].ToString() + "	" + YDATA[i].ToString() + "\r\n";
+            for (int i = 0; i < this.Series[0].Points.Count; i++)
+                text += this.Series[0].Points[i].XValue.ToString() + "	" + this.Series[0].Points[i].YValues[0].ToString() + "\r\n";
 
             System.Windows.Forms.Clipboard.SetText(text);
             MessageBox.Show("Data copied to clipboard.", "Data...");
@@ -190,70 +238,100 @@ namespace JPChart
             this.DrawToBitmap(bmp, this.DisplayRectangle);
             this.SaveImage(sfd.FileName, ChartImageFormat.Jpeg);
         }
-        
-        public void PlotXYData(double[] xData, double[] yData, string title, string xLabel, string yLabel, SeriesChartType seriesStyle, string seriesName)
+
+        /// <summary>
+        /// Plots a data vector on a chart with several options. Will plot additional vectors by calling with unique seriesName's.
+        /// </summary>
+        /// <param name="xData">The abscissa. Pass null for an automatic axis with values from 1 to the length of the yData vector.</param>
+        /// <param name="yData">The ordinate.</param>
+        /// <param name="title">The title of the plot. Pass empty string if not needed.</param>
+        /// <param name="xLabel">The label for the x-axis. Pass empty string if not needed.</param>
+        /// <param name="yLabel">The label for the y-axis. Pass empty string if not needed.</param>
+        /// <param name="seriesStyle">The SeriesChartType.
+        /// <param name="seriesName">The name of the series. This should be a unique identifier to keep multiple plots separate. If it already exists, it will be overwritten with the new plot data.</param>
+        /// <param name="seriesColor">The color for the data series. Pass null for automatic coloring.</param>
+        public void PlotXYData(double[]? xData, double[] yData, string title, string xLabel, string yLabel, SeriesType seriesStyle, string seriesName, Color? seriesColor = null)
         {
-            XDATA = xData;
-            YDATA = yData;
-
             this.SuspendLayout();
-            this.Series.Clear();
-            this.Series.Add(seriesName);
-            this.Series[seriesName].ChartType = seriesStyle;
+			this.RemoveSeries(seriesName);
+			this.Series.Add(seriesName);
+            this.Series[seriesName].ChartType = (SeriesChartType)seriesStyle;
 
-            for (int i = 0; i < XDATA.Length; i++)
+            if (title != "" || this.Series.Count == 1)
             {
-                this.Series[seriesName].Points.AddXY(XDATA[i], YDATA[i]);
-                if (XDATA[i] < DATAMINX)
-                    DATAMINX = XDATA[i];
-                if (XDATA[i] > DATAMAXX)
-                    DATAMAXX = XDATA[i];
-                if (YDATA[i] < DATAMINY)
-                    DATAMINY = YDATA[i];
-                if (YDATA[i] > DATAMAXY)
-                    DATAMAXY = YDATA[i];
+				this.Titles.Clear();
+				this.Titles.Add(title);
+				this.Titles[0].Text = title;
+			}
+
+            if (yLabel != "")
+			    this.ChartAreas[0].AxisY.Title = yLabel;
+
+            if (xLabel != "")
+			    this.ChartAreas[0].AxisX.Title = xLabel;
+
+			if (seriesColor == null)
+            {
+				if (PLOTCOLORINDEX == (PLOTCOLORS.Length - 1))
+                    PLOTCOLORINDEX = 0;
+
+                seriesColor = PLOTCOLORS[PLOTCOLORINDEX];
+                PLOTCOLORINDEX++;
+			}
+			this.Series[seriesName].Color = (Color)seriesColor;
+
+			if (xData == null)
+            {
+                xData = new double[yData.Length];
+                for (int i = 0; i < xData.Length; i++)
+                    xData[i] = (double)(i + 1);
             }
 
-            this.Titles.Clear();
-            this.Titles.Add(title);
-            this.Titles[0].Text = title;
-            this.ChartAreas[0].AxisY.Title = yLabel;
-            this.ChartAreas[0].AxisX.Title = xLabel;
+            for (int i = 0; i < yData.Length; i++)
+            {
+                this.Series[seriesName].Points.AddXY(xData[i], yData[i]);
+                if (xData[i] < DATAMINX)
+                    DATAMINX = xData[i];
+                if (xData[i] > DATAMAXX)
+                    DATAMAXX = xData[i];
+                if (yData[i] < DATAMINY)
+                    DATAMINY = yData[i];
+                if (yData[i] > DATAMAXY)
+                    DATAMAXY = yData[i];
+            }            
 
             try
             {
-                System.Drawing.Font f = new System.Drawing.Font((string)JPChart.GetReg("JPChart", "TitleFontName"), Convert.ToSingle(JPChart.GetReg("JPChart", "TitleFontSize")));//, FontStyle::Bold | FontStyle::Italic);
+                System.Drawing.Font f = new System.Drawing.Font((string)JPChartControl.GetReg("JPChart", "TitleFontName"), Convert.ToSingle(JPChartControl.GetReg("JPChart", "TitleFontSize")));//, FontStyle::Bold | FontStyle::Italic);
                 this.Titles[0].Font = f;                
-                this.Series[seriesName].MarkerColor = System.Drawing.Color.FromArgb((int)JPChart.GetReg("JPChart", "SeriesColour" + seriesName));
-                this.Series[seriesName].Color = System.Drawing.Color.FromArgb((int)JPChart.GetReg("JPChart", "SeriesColour" + seriesName));
 
-                if (Convert.ToBoolean(JPChart.GetReg("JPChart", "ApplyTitleFont")))
+                if (Convert.ToBoolean(JPChartControl.GetReg("JPChart", "ApplyTitleFont")))
                 {
                     this.ChartAreas[0].AxisX.TitleFont = this.Titles[0].Font;
                     this.ChartAreas[0].AxisY.TitleFont = this.Titles[0].Font;
                 }
 				else
 				{
-                    f = new System.Drawing.Font((string)JPChart.GetReg("JPChart", "XAxisFontName"), Convert.ToSingle(JPChart.GetReg("JPChart", "XAxisFontSize")));
+                    f = new System.Drawing.Font((string)JPChartControl.GetReg("JPChart", "XAxisFontName"), Convert.ToSingle(JPChartControl.GetReg("JPChart", "XAxisFontSize")));
                     this.ChartAreas[0].AxisX.TitleFont = f;
-                    f = new System.Drawing.Font((string)JPChart.GetReg("JPChart", "YAxisFontName"), Convert.ToSingle(JPChart.GetReg("JPChart", "YAxisFontSize")));
+                    f = new System.Drawing.Font((string)JPChartControl.GetReg("JPChart", "YAxisFontName"), Convert.ToSingle(JPChartControl.GetReg("JPChart", "YAxisFontSize")));
                     this.ChartAreas[0].AxisY.TitleFont = f;
                 }
             }
-            catch { }            
+            catch { }
 
-            if (seriesStyle == SeriesChartType.Point || seriesStyle == SeriesChartType.FastPoint)
+            if ((SeriesChartType)seriesStyle == SeriesChartType.Point || (SeriesChartType)seriesStyle == SeriesChartType.FastPoint)
             {
                 this.Series[seriesName].MarkerStyle = MarkerStyle.Circle;
                 this.Series[seriesName].MarkerSize = 5;
                 this.Series[seriesName].BorderWidth = 0;
             }
-            else if (seriesStyle == SeriesChartType.Line || seriesStyle == SeriesChartType.FastLine || seriesStyle == SeriesChartType.StepLine)
+            else if ((SeriesChartType)seriesStyle == SeriesChartType.Line || (SeriesChartType)seriesStyle == SeriesChartType.FastLine || (SeriesChartType)seriesStyle == SeriesChartType.StepLine)
 			{
                 this.Series[seriesName].MarkerStyle = MarkerStyle.None;
                 this.Series[seriesName].BorderWidth = 1;
             }
-            else if (seriesStyle == SeriesChartType.Column)
+            else if ((SeriesChartType)seriesStyle == SeriesChartType.Column)
             {
                 this.Series[seriesName]["PointWidth"] = "1";
                 this.Series[seriesName].MarkerStyle = MarkerStyle.None;
@@ -281,46 +359,72 @@ namespace JPChart
                 this.ChartAreas[0].AxisY.Maximum = AXESMANMAXY;
                 this.ChartAreas[0].AxisX.Maximum = AXESMANMAXX;
             }
+
             this.ChartAreas[0].RecalculateAxesScale();
             this.ResumeLayout();
         }
 
-        public void AddXYData(double[] x, double[] y, SeriesChartType seriesStyle, string seriesName, Color seriesColor)
+		/// <summary>
+		/// Add a plot to an existing chart. Keeps existing title and axis labels.
+		/// </summary>
+		/// <param name="xData">The abscissa. Pass null for an automatic axis with values from 1 to the length of the yData vector.</param>
+		/// <param name="yData">The ordinate.</param>
+		/// <param name="seriesStyle">The SeriesChartType.
+		/// <param name="seriesName">The name of the series. This should be a unique identifier to keep multiple plots separate. If it already exists, it will be overwritten with the new plot data.</param>
+		/// <param name="seriesColor">The name of the series. This should be a unique identifier to keep multiple plots separate. If it already exists, it will be overwritten with the new plot data.</param>
+		public void AddXYData(double[]? xData, double[] yData, SeriesType seriesStyle, string seriesName, Color? seriesColor = null)
         {
             this.SuspendLayout();
             this.RemoveSeries(seriesName);
             this.Series.Add(seriesName);
-            this.Series[seriesName].ChartType = seriesStyle;
-            for (int i = 0; i < x.Length; i++)
-            {
-                this.Series[seriesName].Points.AddXY(x[i], y[i]);
-                if (x[i] < DATAMINX)
-                    DATAMINX = x[i];
-                if (x[i] > DATAMAXX)
-                    DATAMAXX = x[i];
-                if (y[i] < DATAMINY)
-                    DATAMINY = y[i];
-                if (y[i] > DATAMAXY)
-                    DATAMAXY = y[i];
-            }
+            this.Series[seriesName].ChartType = (SeriesChartType)seriesStyle;
+			if (seriesColor == null)
+			{
+				if (PLOTCOLORINDEX == (PLOTCOLORS.Length - 1))
+					PLOTCOLORINDEX = 0;
 
-            if (seriesStyle == SeriesChartType.Point || seriesStyle == SeriesChartType.FastPoint)
+				seriesColor = PLOTCOLORS[PLOTCOLORINDEX];
+				PLOTCOLORINDEX++;
+			}
+			this.Series[seriesName].Color = (Color)seriesColor;
+
+			if (xData == null)
+			{
+				xData = new double[yData.Length];
+				for (int i = 0; i < xData.Length; i++)
+					xData[i] = (double)(i + 1);
+			}
+
+			for (int i = 0; i < xData.Length; i++)
+            {
+                this.Series[seriesName].Points.AddXY(xData[i], yData[i]);
+                if (xData[i] < DATAMINX)
+                    DATAMINX = xData[i];
+                if (xData[i] > DATAMAXX)
+                    DATAMAXX = xData[i];
+                if (yData[i] < DATAMINY)
+                    DATAMINY = yData[i];
+                if (yData[i] > DATAMAXY)
+                    DATAMAXY = yData[i];
+            }            
+
+            if ((SeriesChartType)seriesStyle == SeriesChartType.Point || (SeriesChartType)seriesStyle == SeriesChartType.FastPoint)
             {
                 this.Series[seriesName].MarkerStyle = MarkerStyle.Circle;
                 this.Series[seriesName].MarkerSize = 5;
                 this.Series[seriesName].BorderWidth = 0;
             }
-            else if (seriesStyle == SeriesChartType.Line || seriesStyle == SeriesChartType.FastLine || seriesStyle == SeriesChartType.StepLine)
+            else if ((SeriesChartType)seriesStyle == SeriesChartType.Line || (SeriesChartType)seriesStyle == SeriesChartType.FastLine || (SeriesChartType)seriesStyle == SeriesChartType.StepLine)
             {
                 this.Series[seriesName].MarkerStyle = MarkerStyle.None;
                 this.Series[seriesName].BorderWidth = 1;
             }
-            else if (seriesStyle == SeriesChartType.Column)
+            else if ((SeriesChartType)seriesStyle == SeriesChartType.Column)
             {
-                this.Series[seriesName].MarkerStyle = MarkerStyle.None;
+				this.Series[seriesName]["PointWidth"] = "1";
+				this.Series[seriesName].MarkerStyle = MarkerStyle.None;
                 this.Series[seriesName].BorderWidth = 0;
-            }
-            this.Series[seriesName].Color = seriesColor;
+            }           
             this.ChartAreas[0].RecalculateAxesScale();
             this.ResumeLayout();
         }        
@@ -339,12 +443,53 @@ namespace JPChart
             this.ResumeLayout();
         }
 
-        void SetChartTitle(string title)
+        public void RemoveAllSeries()
         {
-            this.Titles[0].Text = title;
+			this.Series.Clear();
+		}
+
+        public void SetTitle(string title)
+        {
+            this.Titles.Clear();
+			this.Titles.Add(title);
+			this.Titles[0].Text = title;
         }
 
-        void SetAxesLimits(double XMin, double XMax, double YMin, double YMax)
+        public void SetXLabel(string xlabel)
+        {
+            this.ChartAreas[0].AxisX.Title = xlabel;
+        }
+
+        public void SetYLabel(string ylabel)
+		{
+			this.ChartAreas[0].AxisY.Title = ylabel;
+		}
+
+        public void SetAxis_XMin(double xmin)
+        {
+            this.ChartAreas[0].AxisX.Minimum = xmin;
+            AXESMANMINX = xmin;
+        }
+
+		public void SetAxis_XMax(double xmax)
+		{
+            this.ChartAreas[0].AxisX.Maximum = xmax;
+			AXESMANMAXX = xmax;
+        }
+
+		public void SetAxis_YMin(double ymin)
+		{
+			this.ChartAreas[0].AxisY.Minimum = ymin;
+			AXESMANMINX = ymin;
+		}
+
+		public void SetAxis_YMax(double ymax)
+		{
+			this.ChartAreas[0].AxisY.Maximum = ymax;
+			AXESMANMINX = ymax;
+		}
+
+		public void SetAxesLimits(double XMin, double XMax, double YMin, double YMax)
         {
             this.SuspendLayout();
             this.ChartAreas[0].AxisX.Minimum = XMin;
@@ -361,9 +506,56 @@ namespace JPChart
             AXESMANMAXX = XMax;
             AXESMANMINY = YMin;
             AXESMANMAXY = YMax;
-        }
 
-        private void JPChart_MouseDown(object sender, MouseEventArgs e)
+            double xrange = XMax - XMin;
+            double yrange = YMax - YMin;
+            double nmajticks = 7;
+            double xinterv = xrange / nmajticks;
+            double yinterv = yrange / nmajticks;
+            double xpow = Math.Floor(Math.Log10(xinterv));
+            double xbase = Math.Round(xinterv / Math.Pow(10, xpow));
+			xinterv = ROUNDTOHUMANINTERVAL(xbase) * Math.Pow(10, xpow);
+			double ypow = Math.Floor(Math.Log10(yinterv));
+			double ybase = Math.Round(yinterv / Math.Pow(10, ypow));
+			yinterv = ROUNDTOHUMANINTERVAL(ybase) * Math.Pow(10, ypow);
+
+			this.ChartAreas[0].AxisX.Interval = xinterv;
+            this.ChartAreas[0].AxisY.Interval = yinterv;
+
+			this.ChartAreas[0].AxisX.IntervalOffset = (-this.ChartAreas[0].AxisX.Minimum) % this.ChartAreas[0].AxisX.Interval;
+			this.ChartAreas[0].AxisY.IntervalOffset = (-this.ChartAreas[0].AxisY.Minimum) % this.ChartAreas[0].AxisY.Interval;
+		}
+
+		private double ROUNDTOHUMANINTERVAL(double value)
+		{
+			if (value <= 1)
+				return 1;
+			else if (value > 1 && value <= 2)
+			{
+				if (value < 1.25)
+					return 1;
+				else
+					return 2;
+			}
+			else if (value > 2 && value <= 5)
+			{
+				if (value < 3.5)
+					return 2;
+				else
+					return 5;
+			}
+			else if (value > 5 && value <= 10)
+			{
+				if (value < 7)
+					return 5;
+				else
+					return 10;
+			}
+			else
+				return 25;
+		}
+
+		private void JPChart_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
             {
@@ -393,7 +585,7 @@ namespace JPChart
             this.SuspendLayout();
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
-                if (expos <= xaxispos && eypos < yaxispos && eypos > 0.66)//-ve y axis, set auto....
+                if (expos <= xaxispos && eypos < yaxispos && eypos > 0.66)//-ve y axis,
                 {
                     this.ChartAreas[0].AxisY.Minimum = Double.NaN;
                     AXESAUTO = false;
@@ -439,30 +631,18 @@ namespace JPChart
                 }
                 else if (expos > xaxispos && expos < xaxisright && eypos > yaxistop && eypos < yaxispos)//then in chart area - reset all axes
                 {
-                    if (ChartContextAutoAxesChck.Checked)
-                    {
-                        ChartContextTightAxesChck.PerformClick();
-                        ChartContextTightAxesChck.Checked = true;
-                        ChartContextMenu.Hide();
-                        ChartContextPlotAreaMenu.HideDropDown();
-                        AXESAUTO = false;
-                        AXESTIGHT = true;
-                        AXESMAN = false;
-                    }
-                    else if (ChartContextTightAxesChck.Checked)
+                    if (ChartContextTightAxesChck.Checked)
                     {
                         ChartContextAutoAxesChck.PerformClick();
-                        ChartContextAutoAxesChck.Checked = true;
                         ChartContextMenu.Hide();
                         ChartContextPlotAreaMenu.HideDropDown();
                         AXESAUTO = true;
                         AXESTIGHT = false;
                         AXESMAN = false;
                     }
-                    else
-                    {
+					else //if (ChartContextAutoAxesChck.Checked) or neither checked
+					{
                         ChartContextTightAxesChck.PerformClick();
-                        ChartContextTightAxesChck.Checked = true;
                         ChartContextMenu.Hide();
                         ChartContextPlotAreaMenu.HideDropDown();
                         AXESAUTO = false;
@@ -509,6 +689,8 @@ namespace JPChart
 				//	if (!(this.ChartAreas[0].AxisY.Minimum - yinterval <= 0 && this.ChartAreas[0].AxisY.IsLogarithmic)) //because if logarithmic, can't go below = 0
 				//		this.ChartAreas[0].AxisY.Minimum -= yinterval;
 				//}
+
+
 			}
             else if (eypos > yaxispos)//x axis
             {
@@ -678,7 +860,15 @@ namespace JPChart
 
             if (!DOZOOM && e.Button == MouseButtons.None)
             {
-                HitTestResult result = this.HitTest(e.X, e.Y);
+				if (TOUCHEDSERIES != "")
+				{
+					this.Series[TOUCHEDSERIES].BorderWidth--;
+					this.Series[TOUCHEDSERIES].MarkerSize-=2;
+					TOUCHEDSERIES = "";
+					TOUCHEDSERIESBOLDED = false;
+				}
+
+				HitTestResult result = this.HitTest(e.X, e.Y);
 
                 if (result.ChartElementType == ChartElementType.DataPoint)
                 {
@@ -687,13 +877,21 @@ namespace JPChart
                     ChartToolTip.SetToolTip(this, "X = " + point.XValue.ToString() + "; Y = " + point.YValues[0].ToString());
                     ChartToolTip.Tag = point.XValue.ToString() + "	" + point.YValues[0].ToString();
                     TOOLTIPISSHOWN = true;
-                }
+
+                    TOUCHEDSERIES = result.Series.Name;
+                    if (!TOUCHEDSERIESBOLDED)
+                    {
+                        this.Series[TOUCHEDSERIES].BorderWidth++;
+                        this.Series[TOUCHEDSERIES].MarkerSize+=2;
+					}
+                    TOUCHEDSERIESBOLDED = true;
+				}
                 else
                 {
                     ChartToolTip.RemoveAll();
-                    TOOLTIPISSHOWN = false;
-                }
-            }
+                    TOOLTIPISSHOWN = false;                                       
+				}				
+			}
         }
     }
 }
